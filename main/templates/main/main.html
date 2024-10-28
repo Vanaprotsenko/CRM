@@ -40,6 +40,21 @@
         .button:hover {
             background-color: #2980b9;
         }
+        .button-excel {
+            padding: 8px 12px;
+            font-size: 14px;
+            color: white;
+            background-color: #3bbe1c;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+        .button-excel:hover {
+            background-color: #138300;
+        }
         .logout-btn {
             padding: 8px 12px;
             font-size: 14px;
@@ -50,22 +65,17 @@
             cursor: pointer;
             text-align: center;
             text-decoration: none;
-            margin: 10px 0;
+            margin: 0 5px;
         }
         .logout-btn:hover {
             background-color: #c0392b;
         }
-        .logout-container {
+        .button-container {
             position: absolute;
             right: 20px;
             top: 20px;
-        }
-        .username-container {
-            position: absolute;
-            left: 20px;
-            top: 20px;
-            font-size: 14px;
-            color: #333;
+            display: flex;
+            gap: 10px;
         }
     </style>
 </head>
@@ -73,14 +83,12 @@
 
 <h1>CRM System</h1>
 
-<div class="username-container">
-    Logged in as: {{ user.username }}  <!-- Display the username -->
-</div>
-
-<div class="logout-container">
+<div class="button-container">
+    <a href="{% url 'admin:index' %}" class="button">Admin Panel</a>
     <a href="{% url 'logout' %}" class="logout-btn">Logout</a>
+    <a href="{% url 'export_products' %}" class="button-excel">Export to Excel</a>
+     <a href="{% url 'add_product' %}" class="button">Add Product</a>
 </div>
-
 <h2>Product List</h2>
 <table>
     {% if messages %}
@@ -108,18 +116,11 @@
             <td>${{ product.price }}</td>
             <td>{{ product.description }}</td>
             <td>
-                <div style="display: flex; gap: 5px;">
-                    {% if user.position == "Admin" or user.position == "Manager" %}
-                        <a href="{% url 'update_product' product.id %}" class="button">Update</a>
-                        <form method="POST" action="{% url 'delete_product' product.id %}" style="margin: 0;">
-                            {% csrf_token %}
-                            <button type="submit" class="button" style="background-color: #e74c3c;">Delete</button>
-                        </form>
-                        <a href="{% url 'add_product' user.id %}" class="button">Add Product</a>
-                    {% else %}
-                        <span>You do not have permission to modify products.</span>
-                    {% endif %}
-                </div>
+                <a href="{% url 'update_product' product.id %}" class="button">Edit</a>
+                <form action="{% url 'delete_product' product.id %}" method="POST" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="button" onclick="return confirm('Are you sure you want to delete this product?');">Delete</button>
+                </form>
             </td>
         </tr>
         {% endfor %}

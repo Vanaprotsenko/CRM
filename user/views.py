@@ -1,47 +1,39 @@
+import logging
 from django.contrib import messages
-from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth import login, authenticate
-from django.contrib.auth.decorators import user_passes_test
+from django.shortcuts import render, redirect
+from user.models import User
 
-from django.contrib.auth.models import User
+
+logging.basicConfig(
+    filename='app.log',
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
 
 
 def auth(request):
     if request.method == 'POST':
-        user = authenticate(request, username=request.POST.get('name'), password=request.POST.get('password'))
+        username = request.POST.get('name')
+        password = request.POST.get('password')
 
-        if user is not None:
-            login(request, user)
-            return redirect('product_list')
-        else:
-            messages.error(request, "Invalid username or password")
+        try:
+            user = User.objects.get(name=username)
+            if password == user.password:
+                request.session['user_id'] = user.id
+                request.session['role'] = user.role
+                logging.info(f'User "{username}" logged in successfully.')
 
-    return render(request, 'user/user.html')
+                if user.role == "admin":
+                    return redirect('product_list')
+                elif user.role == "manager":
+                    return redirect('manager_dashboard')
+                elif user.role == "user":
+                    return redirect('user_dashboard')
+            else:
+                messages.error(request, "Invalid username or password")
+                logging.warning(f'Invalid password attempt for user "{username}".')
+        except User.DoesNotExist:
+            messages.error(request, "User does not exist")
+            logging.warning(f'Login attempt with non-existent user "{username}".')
 
-
-def users_list(request):
-    users = User.objects.all()
-    return render(request, 'user/management_users.html', context={'products': users})
-
-
-@user_passes_test(lambda u: u.role == 'admin')
-def edit_user(request, user_id):
-    user = get_object_or_404(User, id=user_id)
-
-    if request.method == 'POST':
-        user.name = request.POST.get('name', user.name)
-        user.phone = request.POST.get('phone', user.phone)
-        new_role = request.POST.get('role', user.role)
-
-        if new_role in dict(User.ROLE_CHOICES).keys():
-            user.role = new_role
-
-        user.save()
-        messages.success(request, "User details updated successfully.")
-        return redirect('user_list')
-
-    context = {
-        'user': user,
-    }
-
-    return render(request, 'user/edit_user.html', context)
+    return render(request, 'user/auth.html')

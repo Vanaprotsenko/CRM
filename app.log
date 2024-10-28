@@ -1,0 +1,65 @@
+2024-10-27 13:58:45,322 - INFO - D:\CrmSystem\main\views.py changed, reloading.
+2024-10-27 13:58:59,347 - INFO - User dashboard accessed.
+2024-10-27 13:58:59,775 - INFO - User dashboard accessed.
+2024-10-27 13:59:08,515 - INFO - User "Max" logged in successfully.
+2024-10-27 13:59:08,522 - INFO - Product list viewed.
+2024-10-27 13:59:15,976 - INFO - Product deleted: Book.
+2024-10-27 13:59:15,979 - INFO - Product list viewed.
+2024-10-27 14:05:31,777 - INFO - Product added: New Product.
+2024-10-27 14:05:31,778 - INFO - Add product view tested successfully.
+2024-10-27 14:05:31,781 - INFO - Product deleted: Test Product.
+2024-10-27 14:05:31,782 - INFO - Delete product view tested successfully.
+2024-10-27 14:05:31,785 - INFO - Product list viewed.
+2024-10-27 14:05:31,799 - INFO - Product list view tested successfully.
+2024-10-27 14:05:31,800 - INFO - Product updated: Updated Product.
+2024-10-27 14:05:31,800 - INFO - Update product view tested successfully.
+2024-10-27 14:08:53,689 - INFO - Product added: New Product.
+2024-10-27 14:08:53,690 - INFO - Add product view tested successfully.
+2024-10-27 14:08:53,691 - INFO - Product list viewed.
+2024-10-27 14:08:53,702 - INFO - Admin dashboard view tested successfully.
+2024-10-27 14:08:53,704 - INFO - Product deleted: Test Product.
+2024-10-27 14:08:53,704 - INFO - Delete product view tested successfully.
+2024-10-27 14:08:53,708 - INFO - Product list viewed.
+2024-10-27 14:08:53,708 - INFO - Product list view tested successfully.
+2024-10-27 14:08:53,710 - INFO - Product updated: Updated Product.
+2024-10-27 14:08:53,711 - INFO - Update product view tested successfully.
+2024-10-27 14:17:08,521 - INFO - Product added: New Product.
+2024-10-27 14:17:08,522 - INFO - Add product view tested successfully.
+2024-10-27 14:17:08,526 - INFO - Product deleted: Test Product.
+2024-10-27 14:17:08,526 - INFO - Delete product view tested successfully.
+2024-10-27 14:17:08,529 - INFO - Product list viewed.
+2024-10-27 14:17:08,538 - INFO - Product list view tested successfully.
+2024-10-27 14:17:08,540 - INFO - Product updated: Updated Product.
+2024-10-27 14:17:08,540 - INFO - Update product view tested successfully.
+2024-10-27 14:17:41,524 - INFO - Product added: New Product.
+2024-10-27 14:17:41,525 - INFO - Add product view tested successfully.
+2024-10-27 14:17:41,527 - INFO - Product list viewed.
+2024-10-27 14:17:41,540 - INFO - Product deleted: Test Product.
+2024-10-27 14:17:41,540 - INFO - Delete product view tested successfully.
+2024-10-27 14:17:41,543 - INFO - Product list viewed.
+2024-10-27 14:17:41,544 - INFO - Product list view tested successfully.
+2024-10-27 14:17:41,546 - INFO - Product updated: Updated Product.
+2024-10-27 14:17:41,547 - INFO - Update product view tested successfully.
+2024-10-27 14:18:16,743 - INFO - Product added: New Product.
+2024-10-27 14:18:16,744 - INFO - Add product view tested successfully.
+2024-10-27 14:18:16,745 - INFO - Product list viewed.
+2024-10-27 14:18:16,757 - INFO - Product deleted: Test Product.
+2024-10-27 14:18:16,758 - INFO - Delete product view tested successfully.
+2024-10-27 14:18:16,759 - INFO - Manager dashboard view tested successfully.
+2024-10-27 14:18:16,760 - INFO - Product list viewed.
+2024-10-27 14:18:16,761 - INFO - Product list view tested successfully.
+2024-10-27 14:18:16,763 - INFO - Product updated: Updated Product.
+2024-10-27 14:18:16,764 - INFO - Update product view tested successfully.
+2024-10-27 14:18:16,765 - INFO - User dashboard view tested successfully.
+2024-10-27 14:25:39,103 - INFO - Product added: New Product.
+2024-10-27 14:25:39,105 - INFO - Add product view tested successfully.
+2024-10-27 14:25:39,107 - INFO - Product list viewed.
+2024-10-27 14:25:39,120 - INFO - Product deleted: Test Product.
+2024-10-27 14:25:39,121 - INFO - Delete product view tested successfully.
+2024-10-27 14:25:39,122 - INFO - Manager dashboard view tested successfully.
+2024-10-27 14:25:39,123 - INFO - Product list viewed.
+2024-10-27 14:25:39,124 - INFO - Product list view tested successfully.
+2024-10-27 14:25:39,126 - INFO - Product updated: Updated Product.
+2024-10-27 14:25:39,126 - INFO - Update product view tested successfully.
+2024-10-27 14:25:39,128 - INFO - User dashboard view tested successfully.
+2024-10-27 14:25:39,129 - INFO - Product added: New Product.
