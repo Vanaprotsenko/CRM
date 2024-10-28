@@ -1,6 +1,5 @@
 import re
 
-from django.contrib.auth.hashers import make_password
 from django.contrib import messages
 from django.db import models
 

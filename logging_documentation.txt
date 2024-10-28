@@ -1,0 +1,50 @@
+# Documentation on the logsystem
+
+## 1. Configuring the Logins
+
+The logsystem in this project is configured using the standard Python library, 'logging'. The configuration is as follows:
+
+`python
+import logging
+
+# Configuration of the Logins
+logging.basicConfig(
+    filename='app.log',  # File to write the logs to
+    level=logging.INFO,  # Minimum level of messages to be written
+    format='%(asctime)s - %(levelname)s - %(message)s'  # Record Format
+)
+
+2. Loglevels and their assignment
+The logsystem uses the following levels:
+
+DEBUG: Detailed information useful for diagnostics.
+INFO: Information messages about the normal operation of the application.
+WARNING: Notifications of potential problems.
+ERROR: Error messages that prevent the application from running.
+CRITICAL: Crash messages indicating serious errors.
+
+
+3. Interpretation of log entries
+The entries in the app.log files are in the following format:
+
+text
+
+%(asctime)s - %(levelname)s - %(message)s
+asctime: The time and date when the record was recorded.
+levelname: Message importance level.
+message: The text of the message containing information about the event.
+Examples of entries:
+2024-10-27 13:58:08,521 - INFO - User "Max" logged in successfully.
+
+Indicates that the Max user has successfully logged on.
+2024-10-27 13:58:59,775 - INFO - Product added: New Product.
+
+Indicates that a new product has been added with the name New Product.
+
+
+4. Usage of Logs
+Logs can help debug applications and analyze user actions. They can be used to:
+
+Monitoring user activity.
+Find and troubleshoot the application.
+Save system event records
