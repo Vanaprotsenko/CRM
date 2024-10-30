@@ -25,47 +25,31 @@
         th {
             background-color: #f4f4f4;
         }
-        .button {
+        .button, .button-excel, .logout-btn {
             padding: 8px 12px;
             font-size: 14px;
             color: white;
-            background-color: #3498db;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             text-align: center;
             text-decoration: none;
             margin: 0 5px;
+        }
+        .button {
+            background-color: #3498db;
         }
         .button:hover {
             background-color: #2980b9;
         }
         .button-excel {
-            padding: 8px 12px;
-            font-size: 14px;
-            color: white;
             background-color: #3bbe1c;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            margin: 0 5px;
         }
         .button-excel:hover {
             background-color: #138300;
         }
         .logout-btn {
-            padding: 8px 12px;
-            font-size: 14px;
-            color: white;
             background-color: #e74c3c;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            margin: 0 5px;
         }
         .logout-btn:hover {
             background-color: #c0392b;
@@ -84,11 +68,12 @@
 <h1>CRM System</h1>
 
 <div class="button-container">
-    <a href="{% url 'admin:index' %}" class="button">Admin Panel</a>
-    <a href="{% url 'logout' %}" class="logout-btn">Logout</a>
-    <a href="{% url 'export_products' %}" class="button-excel">Export to Excel</a>
-     <a href="{% url 'add_product' %}" class="button">Add Product</a>
+    <a href="{% url 'admin:index' %}" class="button" onclick="setNavigating(false);">Admin Panel</a>
+    <a href="{% url 'logout' %}" class="logout-btn" onclick="setNavigating(false);">Logout</a>
+    <a href="{% url 'export_products' %}" class="button-excel" onclick="setNavigating(false);">Export to Excel</a>
+    <a href="{% url 'add_product' %}" class="button" onclick="setNavigating(false);">Add Product</a>
 </div>
+
 <h2>Product List</h2>
 <table>
     {% if messages %}
@@ -116,7 +101,7 @@
             <td>${{ product.price }}</td>
             <td>{{ product.description }}</td>
             <td>
-                <a href="{% url 'update_product' product.id %}" class="button">Edit</a>
+                <a href="{% url 'update_product' product.id %}" class="button" onclick="setNavigating(false);">Edit</a>
                 <form action="{% url 'delete_product' product.id %}" method="POST" style="display:inline;">
                     {% csrf_token %}
                     <button type="submit" class="button" onclick="return confirm('Are you sure you want to delete this product?');">Delete</button>
@@ -126,6 +111,24 @@
         {% endfor %}
     </tbody>
 </table>
+
+<script>
+    let navigating = false; // Flag to track navigation
+
+    // Function to set navigation state
+    function setNavigating(value) {
+        navigating = value;
+    }
+
+    // Event listener for beforeunload
+    window.addEventListener('beforeunload', function (event) {
+        if (!navigating) {
+            // This prompts the confirmation dialog
+            event.preventDefault();
+            event.returnValue = ''; // Required for the dialog to show in some browsers
+        }
+    });
+</script>
 
 </body>
 </html>
